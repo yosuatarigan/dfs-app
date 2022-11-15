@@ -48,10 +48,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List siswa = [
-    {'nama': 'andika', 'kelas': 'semester 1', 'hoby': 'sepak bola'},
-    {'nama': 'citra', 'kelas': 'semester 2', 'hoby': 'badminton'},
-    {'nama': 'jaka', 'kelas': 'semester 3', 'hoby': 'basket'},
+  List user = [
+    {'username': 'nita', 'email': 'nita@gmail.com', 'poin': '200'},
+    {'username': 'joko', 'email': 'joko@gmail.com', 'poin': '100'},
+    {'username': 'candra', 'email': 'candra@gmail.com', 'poin': '150'},
   ];
 
   Map hasilcari = {};
@@ -60,14 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void caridata() {
     if (cari.text != '') {
-      for (Map data in siswa) {
-        if (data['nama'].contains(cari.text)) {
+      for (Map data in user ) {
+        if (data['username'].contains(cari.text)) {
           hasilcari = data;
           break;
-        } else if (data['kelas'].contains(cari.text)) {
+        } else if (data['email'].contains(cari.text)) {
           hasilcari = data;
           break;
-        } else if (data['hoby'].contains(cari.text)) {
+        } else if (data['poin'].contains(cari.text)) {
           hasilcari = data;
           break;
         }
@@ -103,9 +103,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Hasil Pencarian"),
-                    Text("Nama : ${hasilcari['nama']}"),
-                    Text("Kelas : ${hasilcari['kelas']}"),
-                    Text("Mata Kuliah : ${hasilcari['hoby']}"),
+                    Text("Username : ${hasilcari['username']}"),
+                    Text("Email : ${hasilcari['email']}"),
+                    Text("Poin : ${hasilcari['poin']}"),
                   ],
                 ),
             ],
