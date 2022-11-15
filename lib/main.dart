@@ -48,10 +48,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List mahasiswa = [
-    {'nama': 'andi', 'kelas': '1', 'matakuliah': 'Web Program'},
-    {'nama': 'beni', 'kelas': '2', 'matakuliah': 'Android'},
-    {'nama': 'cika', 'kelas': '3', 'matakuliah': 'Desktop'},
+  List siswa = [
+    {'nama': 'andika', 'kelas': 'semester 1', 'hoby': 'sepak bola'},
+    {'nama': 'citra', 'kelas': 'semester 2', 'hoby': 'badminton'},
+    {'nama': 'jaka', 'kelas': 'semester 3', 'hoby': 'basket'},
   ];
 
   Map hasilcari = {};
@@ -60,8 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void caridata() {
     if (cari.text != '') {
-      for (Map data in mahasiswa) {
+      for (Map data in siswa) {
         if (data['nama'].contains(cari.text)) {
+          hasilcari = data;
+          break;
+        } else if (data['kelas'].contains(cari.text)) {
+          hasilcari = data;
+          break;
+        } else if (data['hoby'].contains(cari.text)) {
           hasilcari = data;
           break;
         }
@@ -99,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Text("Hasil Pencarian"),
                     Text("Nama : ${hasilcari['nama']}"),
                     Text("Kelas : ${hasilcari['kelas']}"),
-                    Text("Mata Kuliah : ${hasilcari['matakuliah']}"),
+                    Text("Mata Kuliah : ${hasilcari['hoby']}"),
                   ],
                 ),
             ],
